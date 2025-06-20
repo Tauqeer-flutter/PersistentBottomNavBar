@@ -207,7 +207,7 @@ class _PersistentTabScaffoldState extends State<_PersistentTabScaffold> {
                                             .navBarHeight) +
                                         MediaQuery.paddingOf(context).bottom
                                     : 0,
-                            right: 10,
+                            right: 0,
                             child: widget.floatingActionWidget!,
                           )
                         else
@@ -229,7 +229,7 @@ class _PersistentTabScaffoldState extends State<_PersistentTabScaffold> {
                                             .navBarHeight) +
                                         MediaQuery.paddingOf(context).bottom
                                     : 0,
-                            right: 10,
+                            right: 0,
                             child: widget.floatingActionWidget!,
                           ),
                       ],
