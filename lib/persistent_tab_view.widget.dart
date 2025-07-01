@@ -632,6 +632,7 @@ class _PersistentTabViewState extends State<PersistentTabView>
         hideNavBar: _hideNavigationBar,
         resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
         floatingActionWidget: widget.floatingActionButton,
+        floatingActionBottom: widget.floatingActionBottom,
         navBarPosition: widget.navBarPosition,
         confineToSafeArea: (widget.items.isNotEmpty &&
                     widget.items[_controller.index].opacity < 1.0) ||
