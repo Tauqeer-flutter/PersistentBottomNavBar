@@ -51,6 +51,7 @@ class _PersistentTabScaffold extends StatefulWidget {
     this.itemCount,
     this.confineToSafeArea = true,
     this.floatingActionWidget,
+    this.floatingActionBottom,
   })  : assert(
             controller == null || controller.index < itemCount!,
             "The PersistentTabController's current index ${controller.index} is "
@@ -82,6 +83,8 @@ class _PersistentTabScaffold extends StatefulWidget {
   final bool hideNavBar;
 
   final NavBarPosition navBarPosition;
+
+  final double? floatingActionBottom;
 
   @override
   _PersistentTabScaffoldState createState() => _PersistentTabScaffoldState();
@@ -190,45 +193,47 @@ class _PersistentTabScaffoldState extends State<_PersistentTabScaffold> {
                                 .onNavBarHideAnimation.duration,
                             curve: widget
                                 .animationSettings.onNavBarHideAnimation.curve,
-                            bottom: widget.hideNavBar
-                                ? 10
-                                : (widget.bottomScreenMargin ??
-                                            (widget.confineToSafeArea
-                                                ? (widget
-                                                        .tabBar
-                                                        .navBarEssentials
-                                                        .navBarHeight) +
-                                                    MediaQuery.paddingOf(
-                                                            context)
-                                                        .bottom
-                                                : 0)) ==
-                                        0
-                                    ? (widget.tabBar.navBarEssentials
-                                            .navBarHeight) +
-                                        MediaQuery.paddingOf(context).bottom
-                                    : 0,
+                            bottom: widget.floatingActionBottom ??
+                                (widget.hideNavBar
+                                    ? 10
+                                    : (widget.bottomScreenMargin ??
+                                                (widget.confineToSafeArea
+                                                    ? (widget
+                                                            .tabBar
+                                                            .navBarEssentials
+                                                            .navBarHeight) +
+                                                        MediaQuery.paddingOf(
+                                                                context)
+                                                            .bottom
+                                                    : 0)) ==
+                                            0
+                                        ? (widget.tabBar.navBarEssentials
+                                                .navBarHeight) +
+                                            MediaQuery.paddingOf(context).bottom
+                                        : 0),
                             right: 0,
                             child: widget.floatingActionWidget!,
                           )
                         else
                           Positioned(
-                            bottom: widget.hideNavBar
-                                ? 10
-                                : (widget.bottomScreenMargin ??
-                                            (widget.confineToSafeArea
-                                                ? (widget
-                                                        .tabBar
-                                                        .navBarEssentials
-                                                        .navBarHeight) +
-                                                    MediaQuery.paddingOf(
-                                                            context)
-                                                        .bottom
-                                                : 0)) ==
-                                        0
-                                    ? (widget.tabBar.navBarEssentials
-                                            .navBarHeight) +
-                                        MediaQuery.paddingOf(context).bottom
-                                    : 0,
+                            bottom: widget.floatingActionBottom ??
+                                (widget.hideNavBar
+                                    ? 10
+                                    : (widget.bottomScreenMargin ??
+                                                (widget.confineToSafeArea
+                                                    ? (widget
+                                                            .tabBar
+                                                            .navBarEssentials
+                                                            .navBarHeight) +
+                                                        MediaQuery.paddingOf(
+                                                                context)
+                                                            .bottom
+                                                    : 0)) ==
+                                            0
+                                        ? (widget.tabBar.navBarEssentials
+                                                .navBarHeight) +
+                                            MediaQuery.paddingOf(context).bottom
+                                        : 0),
                             right: 0,
                             child: widget.floatingActionWidget!,
                           ),

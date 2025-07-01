@@ -37,6 +37,7 @@ class PersistentTabView extends PersistentTabViewBase {
       this.isVisible = true,
       // this.navBarPosition = NavBarPosition.bottom,
       this.animationSettings = const NavBarAnimationSettings(),
+      final double? floatingActionBottom,
       final NavBarStyle navBarStyle = NavBarStyle.style1})
       : assert(assertMidButtonStyles(navBarStyle, items.length),
             "NavBar styles 15-18 only accepts the property `List<PersistentBottomNavBarItem> items` with 3 or 5 length."),
@@ -75,6 +76,7 @@ class PersistentTabView extends PersistentTabViewBase {
           handleAndroidBackButtonPress: handleAndroidBackButtonPress,
           isVisible: isVisible,
           navBarPosition: NavBarPosition.bottom,
+          floatingActionBottom: floatingActionBottom,
         );
 
   const PersistentTabView.custom(
@@ -99,6 +101,7 @@ class PersistentTabView extends PersistentTabViewBase {
     // this.navBarPosition = NavBarPosition.bottom,
     this.isVisible = true,
     this.animationSettings = const NavBarAnimationSettings(),
+    final double? floatingActionBottom,
     final double navBarHeight = kBottomNavigationBarHeight,
   })  : assert(itemCount == screens.length,
             "screens and items length should be same. If you are using the onPressed callback function of 'PersistentBottomNavBarItem', enter a dummy screen like Container() in its place in the screens"),
@@ -124,6 +127,7 @@ class PersistentTabView extends PersistentTabViewBase {
           decoration: const NavBarDecoration(),
           navBarPosition: NavBarPosition.bottom,
           navBarHeight: navBarHeight,
+          floatingActionBottom: floatingActionBottom,
         );
 
   ///Controller for persistent bottom navigation bar. Will be declared if left empty.
@@ -237,6 +241,7 @@ class PersistentTabViewBase extends StatefulWidget {
     this.selectedTabScreenContext,
     this.navBarItemsAlignment = MainAxisAlignment.spaceAround,
     this.navBarPosition = NavBarPosition.bottom,
+    this.floatingActionBottom,
   }) : super(key: key);
 
   ///List of persistent bottom navigation bar items to be displayed in the navigation bar.
@@ -334,6 +339,8 @@ class PersistentTabViewBase extends StatefulWidget {
   final MainAxisAlignment navBarItemsAlignment;
 
   final NavBarPosition navBarPosition;
+
+  final double? floatingActionBottom;
 
   @override
   _PersistentTabViewState createState() => _PersistentTabViewState();
